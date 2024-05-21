@@ -23,26 +23,26 @@ createCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
-  background(245);
-  fill(255, 223, 186); 
-  stroke(139, 69, 19); 
-  strokeWeight(5);
-  beginShape();
-  vertex(200, 600);
-  bezierVertex(200, 400, 600, 400, 600, 600);
-  bezierVertex(600, 800, 200, 800, 200, 600);
-  endShape(CLOSE);
+    background(245);
+    fill(255, 223, 186); 
+    stroke(139, 69, 19); 
+    strokeWeight(5);
+    beginShape();
+    vertex(width / 2 - 200, height / 2 + 200); // Modified: shape is centered and 100 pixels lower
+    bezierVertex(width / 2 - 200, height / 2, width / 2 + 200, height / 2, width / 2 + 200, height / 2 + 200); // Modified: shape is centered and 100 pixels lower
+    bezierVertex(width / 2 + 200, height / 2 + 400, width / 2 - 200, height / 2 + 400, width / 2 - 200, height / 2 + 200); // Modified: shape is centered and 100 pixels lower
+    endShape(CLOSE);
 
-  fill(0);
-  noStroke();
-  if (shaken) {
-    text(currentFortune, width / 2, height / 2);
-  }
-  
-  if (abs(rotationX - pRotationX) > 5 || abs(rotationY - pRotationY) > 5 || abs(rotationZ - pRotationZ) > 3) {
-    currentFortune = random(fortunes);
-    shaken = true; 
-  }
+    fill(0);
+    noStroke();
+    if (shaken) {
+        text(currentFortune, width / 2, height / 2);
+    }
+    
+    if (abs(rotationX - pRotationX) > 5 || abs(rotationY - pRotationY) > 5 || abs(rotationZ - pRotationZ) > 3) {
+        currentFortune = random(fortunes);
+        shaken = true; 
+    }
 }
 
 function requestMotionPermission() {
